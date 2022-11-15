@@ -28,6 +28,11 @@ echo -e "Os" >> optimisation_de_compilation.csv
 echo -e "Og" >> optimisation_de_compilation.csv
 echo -e "Ofast" >> optimisation_de_compilation.csv
 
+# Ajout successif des noms des compilateurs (et passage à la ligne) dans le même csv 
+echo -e "GCC" >> compilateurs.csv
+echo -e "CLANG" >> compilateurs.csv
+echo -e "ICX" >> compilateurs.csv
+
 # DGEMM :
 # Pinning du processus le 4ème coeur de calcul (-c 4)
 # Redirection de la sortie standard dans un fichier .csv qui est créé (>)
@@ -342,6 +347,56 @@ awk -F";" '{print $11}' dgemm_O0_icx_cblas.csv dgemm_O1_icx_cblas.csv dgemm_O2_i
 awk -F";" '{print $12}' dotprod_O0_icx_base.csv dotprod_O1_icx_base.csv dotprod_O2_icx_base.csv dotprod_O3_icx_base.csv dotprod_Os_icx_base.csv dotprod_Og_icx_base.csv dotprod_Ofast_icx_base.csv > dotprod_icx_base.csv
 awk -F";" '{print $12}' reduc_O0_icx_base.csv reduc_O1_icx_base.csv reduc_O2_icx_base.csv reduc_O3_icx_base.csv reduc_Os_icx_base.csv reduc_Og_icx_base.csv reduc_Ofast_icx_base.csv > reduc_icx_base.csv
 
+#(DGEMM) Extraction (avec séparateur ";") du champs (bandwidth) des csv vers un csv dédié à la version de calcul et à l'optimisation de compilation
+awk -F";" '{print $11}' dgemm_O0_gcc_ijk.csv dgemm_O0_clang_ijk.csv dgemm_O0_icx_ijk.csv > dgemm_O0_ijk.csv
+awk -F";" '{print $11}' dgemm_O0_gcc_ikj.csv dgemm_O0_clang_ikj.csv dgemm_O0_icx_ikj.csv > dgemm_O0_ikj.csv
+awk -F";" '{print $11}' dgemm_O0_gcc_iex.csv dgemm_O0_clang_iex.csv dgemm_O0_icx_iex.csv > dgemm_O0_iex.csv
+awk -F";" '{print $11}' dgemm_O0_gcc_unroll4.csv dgemm_O0_clang_unroll4.csv dgemm_O0_icx_unroll4.csv > dgemm_O0_unroll4.csv
+awk -F";" '{print $11}' dgemm_O0_gcc_unroll8.csv dgemm_O0_clang_unroll8.csv dgemm_O0_icx_unroll8.csv > dgemm_O0_unroll8.csv
+awk -F";" '{print $11}' dgemm_O0_gcc_cblas.csv dgemm_O0_clang_cblas.csv dgemm_O0_icx_cblas.csv > dgemm_O0_cblas.csv
+
+awk -F";" '{print $11}' dgemm_O1_gcc_ijk.csv dgemm_O1_clang_ijk.csv dgemm_O1_icx_ijk.csv > dgemm_O1_ijk.csv
+awk -F";" '{print $11}' dgemm_O1_gcc_ikj.csv dgemm_O1_clang_ikj.csv dgemm_O1_icx_ikj.csv > dgemm_O1_ikj.csv
+awk -F";" '{print $11}' dgemm_O1_gcc_iex.csv dgemm_O1_clang_iex.csv dgemm_O1_icx_iex.csv > dgemm_O1_iex.csv
+awk -F";" '{print $11}' dgemm_O1_gcc_unroll4.csv dgemm_O1_clang_unroll4.csv dgemm_O1_icx_unroll4.csv > dgemm_O1_unroll4.csv
+awk -F";" '{print $11}' dgemm_O1_gcc_unroll8.csv dgemm_O1_clang_unroll8.csv dgemm_O1_icx_unroll8.csv > dgemm_O1_unroll8.csv
+awk -F";" '{print $11}' dgemm_O1_gcc_cblas.csv dgemm_O1_clang_cblas.csv dgemm_O1_icx_cblas.csv > dgemm_O1_cblas.csv
+
+awk -F";" '{print $11}' dgemm_O2_gcc_ijk.csv dgemm_O2_clang_ijk.csv dgemm_O2_icx_ijk.csv > dgemm_O2_ijk.csv
+awk -F";" '{print $11}' dgemm_O2_gcc_ikj.csv dgemm_O2_clang_ikj.csv dgemm_O2_icx_ikj.csv > dgemm_O2_ikj.csv
+awk -F";" '{print $11}' dgemm_O2_gcc_iex.csv dgemm_O2_clang_iex.csv dgemm_O2_icx_iex.csv > dgemm_O2_iex.csv
+awk -F";" '{print $11}' dgemm_O2_gcc_unroll4.csv dgemm_O2_clang_unroll4.csv dgemm_O2_icx_unroll4.csv > dgemm_O2_unroll4.csv
+awk -F";" '{print $11}' dgemm_O2_gcc_unroll8.csv dgemm_O2_clang_unroll8.csv dgemm_O2_icx_unroll8.csv > dgemm_O2_unroll8.csv
+awk -F";" '{print $11}' dgemm_O2_gcc_cblas.csv dgemm_O2_clang_cblas.csv dgemm_O2_icx_cblas.csv > dgemm_O2_cblas.csv
+
+awk -F";" '{print $11}' dgemm_O3_gcc_ijk.csv dgemm_O3_clang_ijk.csv dgemm_O3_icx_ijk.csv > dgemm_O3_ijk.csv
+awk -F";" '{print $11}' dgemm_O3_gcc_ikj.csv dgemm_O3_clang_ikj.csv dgemm_O3_icx_ikj.csv > dgemm_O3_ikj.csv
+awk -F";" '{print $11}' dgemm_O3_gcc_iex.csv dgemm_O3_clang_iex.csv dgemm_O3_icx_iex.csv > dgemm_O3_iex.csv
+awk -F";" '{print $11}' dgemm_O3_gcc_unroll4.csv dgemm_O3_clang_unroll4.csv dgemm_O3_icx_unroll4.csv > dgemm_O3_unroll4.csv
+awk -F";" '{print $11}' dgemm_O3_gcc_unroll8.csv dgemm_O3_clang_unroll8.csv dgemm_O3_icx_unroll8.csv > dgemm_O3_unroll8.csv
+awk -F";" '{print $11}' dgemm_O3_gcc_cblas.csv dgemm_O3_clang_cblas.csv dgemm_O3_icx_cblas.csv > dgemm_O3_cblas.csv
+
+awk -F";" '{print $11}' dgemm_Os_gcc_ijk.csv dgemm_Os_clang_ijk.csv dgemm_Os_icx_ijk.csv > dgemm_Os_ijk.csv
+awk -F";" '{print $11}' dgemm_Os_gcc_ikj.csv dgemm_Os_clang_ikj.csv dgemm_Os_icx_ikj.csv > dgemm_Os_ikj.csv
+awk -F";" '{print $11}' dgemm_Os_gcc_iex.csv dgemm_Os_clang_iex.csv dgemm_Os_icx_iex.csv > dgemm_Os_iex.csv
+awk -F";" '{print $11}' dgemm_Os_gcc_unroll4.csv dgemm_Os_clang_unroll4.csv dgemm_Os_icx_unroll4.csv > dgemm_Os_unroll4.csv
+awk -F";" '{print $11}' dgemm_Os_gcc_unroll8.csv dgemm_Os_clang_unroll8.csv dgemm_Os_icx_unroll8.csv > dgemm_Os_unroll8.csv
+awk -F";" '{print $11}' dgemm_Os_gcc_cblas.csv dgemm_Os_clang_cblas.csv dgemm_Os_icx_cblas.csv > dgemm_Os_cblas.csv
+
+awk -F";" '{print $11}' dgemm_Og_gcc_ijk.csv dgemm_Og_clang_ijk.csv dgemm_Og_icx_ijk.csv > dgemm_Og_ijk.csv
+awk -F";" '{print $11}' dgemm_Og_gcc_ikj.csv dgemm_Og_clang_ikj.csv dgemm_Og_icx_ikj.csv > dgemm_Og_ikj.csv
+awk -F";" '{print $11}' dgemm_Og_gcc_iex.csv dgemm_Og_clang_iex.csv dgemm_Og_icx_iex.csv > dgemm_Og_iex.csv
+awk -F";" '{print $11}' dgemm_Og_gcc_unroll4.csv dgemm_Og_clang_unroll4.csv dgemm_Og_icx_unroll4.csv > dgemm_Og_unroll4.csv
+awk -F";" '{print $11}' dgemm_Og_gcc_unroll8.csv dgemm_Og_clang_unroll8.csv dgemm_Og_icx_unroll8.csv > dgemm_Og_unroll8.csv
+awk -F";" '{print $11}' dgemm_Og_gcc_cblas.csv dgemm_Og_clang_cblas.csv dgemm_Og_icx_cblas.csv > dgemm_Og_cblas.csv
+
+awk -F";" '{print $11}' dgemm_Ofast_gcc_ijk.csv dgemm_Ofast_clang_ijk.csv dgemm_Ofast_icx_ijk.csv > dgemm_Ofast_ijk.csv
+awk -F";" '{print $11}' dgemm_Ofast_gcc_ikj.csv dgemm_Ofast_clang_ikj.csv dgemm_Ofast_icx_ikj.csv > dgemm_Ofast_ikj.csv
+awk -F";" '{print $11}' dgemm_Ofast_gcc_iex.csv dgemm_Ofast_clang_iex.csv dgemm_Ofast_icx_iex.csv > dgemm_Ofast_iex.csv
+awk -F";" '{print $11}' dgemm_Ofast_gcc_unroll4.csv dgemm_Ofast_clang_unroll4.csv dgemm_Ofast_icx_unroll4.csv > dgemm_Ofast_unroll4.csv
+awk -F";" '{print $11}' dgemm_Ofast_gcc_unroll8.csv dgemm_Ofast_clang_unroll8.csv dgemm_Ofast_icx_unroll8.csv > dgemm_Ofast_unroll8.csv
+awk -F";" '{print $11}' dgemm_Ofast_gcc_cblas.csv dgemm_Ofast_clang_cblas.csv dgemm_Ofast_icx_cblas.csv > dgemm_Ofast_cblas.csv
+
 #Fusion des csv pour un csv dédié à la version de calcul organisé pour être entré dans gnuplot avec séparateur ","
 paste -d, optimisation_de_compilation.csv dgemm_ijk_gcc.csv dgemm_ijk_clang.csv dgemm_ijk_icx.csv > dgemm_ijk.dat
 paste -d, optimisation_de_compilation.csv dgemm_ikj_gcc.csv dgemm_ikj_clang.csv dgemm_ikj_icx.csv > dgemm_ikj.dat
@@ -352,6 +407,16 @@ paste -d, optimisation_de_compilation.csv dgemm_cblas_gcc.csv dgemm_cblas_clang.
 paste -d, optimisation_de_compilation.csv dotprod_gcc_base.csv dotprod_clang_base.csv dotprod_icx_base.csv > dotprod.dat
 paste -d, optimisation_de_compilation.csv reduc_gcc_base.csv reduc_clang_base.csv reduc_icx_base.csv > reduc.dat
 rm optimisation_de_compilation.csv
+
+#Fusion des csv pour un csv dédié à l'optimisation de compilation organisé pour être entré dans gnuplot avec séparateur ","
+paste -d, compilateurs.csv dgemm_O0_ijk.csv dgemm_O0_ikj.csv dgemm_O0_iex.csv dgemm_O0_unroll4.csv dgemm_O0_unroll8.csv dgemm_O0_cblas.csv > dgemm_O0.dat
+paste -d, compilateurs.csv dgemm_O1_ijk.csv dgemm_O1_ikj.csv dgemm_O1_iex.csv dgemm_O1_unroll4.csv dgemm_O1_unroll8.csv dgemm_O1_cblas.csv > dgemm_O1.dat
+paste -d, compilateurs.csv dgemm_O2_ijk.csv dgemm_O2_ikj.csv dgemm_O2_iex.csv dgemm_O2_unroll4.csv dgemm_O2_unroll8.csv dgemm_O2_cblas.csv > dgemm_O2.dat
+paste -d, compilateurs.csv dgemm_O3_ijk.csv dgemm_O3_ikj.csv dgemm_O3_iex.csv dgemm_O3_unroll4.csv dgemm_O3_unroll8.csv dgemm_O3_cblas.csv > dgemm_O3.dat
+paste -d, compilateurs.csv dgemm_Os_ijk.csv dgemm_Os_ikj.csv dgemm_Os_iex.csv dgemm_Os_unroll4.csv dgemm_Os_unroll8.csv dgemm_Os_cblas.csv > dgemm_Os.dat
+paste -d, compilateurs.csv dgemm_Og_ijk.csv dgemm_Og_ikj.csv dgemm_Og_iex.csv dgemm_Og_unroll4.csv dgemm_Og_unroll8.csv dgemm_Og_cblas.csv > dgemm_Og.dat
+paste -d, compilateurs.csv dgemm_Ofast_ijk.csv dgemm_Ofast_ikj.csv dgemm_Ofast_iex.csv dgemm_Ofast_unroll4.csv dgemm_Ofast_unroll8.csv dgemm_Ofast_cblas.csv > dgemm_Ofast.dat
+rm compilateurs.csv
 
 # Exécution du script gnuplot
 gnuplot gnuplot.gp

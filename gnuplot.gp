@@ -22,14 +22,14 @@ set multiplot layout 4,2
 
 # Afficher la colonne 1 comme étiquettes des groupes de barres (xtics(1)):
 # Afficher le titre des classes de barres en haut à droite (ti "gcc") :
-plot 'dgemm_ijk.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'dgemm_ikj.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'dgemm_iex.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'dgemm_unroll4.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'dgemm_unroll8.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'dgemm_cblas.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'dotprod.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
-plot 'reduc.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang"
+plot 'dgemm_ijk.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'dgemm_ikj.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'dgemm_iex.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'dgemm_unroll4.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'dgemm_unroll8.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'dgemm_cblas.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'dotprod.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
+plot 'reduc.dat' using 2:xticlabels(1) ti "gcc", '' using 3:xticlabels(1) ti "clang", '' using 4:xticlabels(1) ti "icx"
 
 # Plusieurs graphiques sur une même page
 unset multiplot

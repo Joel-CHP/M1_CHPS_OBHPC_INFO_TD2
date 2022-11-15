@@ -1,10 +1,19 @@
 #!/bin/bash
 # shebang=sharp(#)bang(!) indique que ce fichier est un ensemble de commandes pour l'interpréteur /bin/bash
 
-# Préalables :
+##### PREALABLES #####
 # Installation de GCC et CLANG
 # Installation de ICX par ""oneAPI base toolkit de Intel" (ICC faisant partie de oneAPI HPC toolkit qui n'est pas installé à ce jour)
 # Création du script de définition de l'environnement : $ source /opt/intel/oneapi/setvars.sh intel64
+
+# Tri processus selon la mémoire avec $ top -o %MEM
+# Tri processus selon le CPU avec $ top -o %CPU
+# Arrêt de tous processus coûteux avec $ kill <PID>
+
+##### DEBUT DU SCRIPT #####
+# Selon $ cpupower frequency-info, la fréquence peut être choisie sur cet intervalle : nous voulons la valeur maximale : "4.60 HHz". 
+# Nous avons le choix entre deux governors : nous prenons "performance" pour maximiser la fréquence à "4.60 HHz".
+sudo cpupower -c all frequency-set -g performance
 
 # Variable n (taille) et r (kernel repetitions)
 n=25

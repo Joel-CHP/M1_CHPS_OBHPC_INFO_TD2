@@ -136,5 +136,4 @@ unset output
 
 
 ##### Afficher un message et attendre un retour charriot :
-pause -1 "Appuyer sur retour charriot pour terminer l'exécution du TD2 de OBHPC Info. 2 fichiers de type PNG sont générés pour la 1ère partie comparant les différentes versions pour chaque compilateur. 2 fichiers de type PNG sont générés pour la 2ème partie comparant les versions par compilateur". 
-
+pause -1 "Appuyer sur retour charriot pour terminer l'exécution du TD2 de OBHPC Info. 2 fichiers de type PNG sont générés pour la 1ère partie comparant les différentes versions pour chaque compilateur. 2 fichiers de type PNG sont générés pour la 2ème partie comparant les versions par compilateur."

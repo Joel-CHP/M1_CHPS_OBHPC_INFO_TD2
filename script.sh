@@ -6,9 +6,9 @@
 # Installation de ICX par ""oneAPI base toolkit de Intel" (ICC faisant partie de oneAPI HPC toolkit qui n'est pas installé à ce jour)
 # Création du script de définition de l'environnement : $ source /opt/intel/oneapi/setvars.sh intel64
 
-# Tri processus selon la mémoire avec $ top -o %MEM
-# Tri processus selon le CPU avec $ top -o %CPU
-# Arrêt de tous processus coûteux avec $ kill <PID>
+# Tri processus selon la mémoire avec : $ top -o %MEM
+# Tri processus selon le CPU avec : $ top -o %CPU
+# Arrêt de tous processus coûteux avec : $ kill <PID>
 
 ##### DEBUT DU SCRIPT #####
 # Selon $ cpupower frequency-info, la fréquence peut être choisie sur cet intervalle : nous voulons la valeur maximale : "4.60 HHz". 
@@ -16,8 +16,8 @@
 sudo cpupower -c all frequency-set -g performance
 
 # Variable n (taille) et r (kernel repetitions)
-n=25
-r=250
+n=50
+r=500
 
 # Compiler le Makefile dans /TD2/dgemm depuis /TD2
 make -C dgemm
